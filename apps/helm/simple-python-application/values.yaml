@@ -1,0 +1,41 @@
+namespace: "dev"
+
+replicaCount: 1
+
+image:
+  repository: davidlimacd/simple-python-application
+  tag: latest
+
+nameOverride: "simple-py-app"
+fullnameOverride: "simple-python-application"
+
+service:
+  type: ClusterIP
+  port: 5000
+  targetPort: http
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations: {}
+  hosts:
+    - host: apps.dev.jupter.xyz
+      paths:
+        - path: /python
+          pathType: Prefix
+
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 2
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 95
