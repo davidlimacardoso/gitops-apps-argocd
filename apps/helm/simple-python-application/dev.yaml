@@ -1,0 +1,10 @@
+image:
+  tag: 1.12.0-develop.14
+
+env:
+  COLOR: blue
+
+ingress:
+  hosts:
+    - host: apps.dev.jupter.xyz
+      paths: /python
