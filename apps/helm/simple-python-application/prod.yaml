@@ -1,10 +1,9 @@
 image:
   tag: 1.13.0
 
-env:
-  COLOR: YELLOW
-
 ingress:
   hosts:
-    - host: apps.prod.jupter.xyz
-      paths: /python
+    - host: apps.jupter.xyz
+      paths:
+        - path: /python
+          pathType: Prefix
