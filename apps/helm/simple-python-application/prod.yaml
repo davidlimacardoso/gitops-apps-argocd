@@ -1,4 +1,4 @@
-namespace: "prod"
+namespace: prod
 
 image:
   tag: 1.13.0
