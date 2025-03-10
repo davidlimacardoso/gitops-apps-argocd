@@ -1,7 +1,7 @@
 namespace: dev
 
 image:
-  tag: 1.12.0-develop.42
+  tag: 1.14.0
 
 ingress:
   hosts:
