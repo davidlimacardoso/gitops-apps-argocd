@@ -7,5 +7,5 @@ ingress:
   hosts:
     - host: apps.jupter.xyz
       paths:
-        - path: /python
+        - path: /
           pathType: Prefix
