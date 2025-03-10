@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-simple-python-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/davidlimacardoso/gitops-apps-argocd.git
+    path: apps/helm/simple-python-application
+    targetRevision: main
+    helm:
+      valueFiles:
+        - common-values.yaml
+        - prod.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: apps-prod
+    self-heal: true
+  syncPolicy:
+    automated: {}
